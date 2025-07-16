@@ -15,9 +15,11 @@
       "type": "string",
       "required": true
     },
-    "description": {
-      "type": "blocks",
-      "required": true
+    "subtitle1": {
+      "type": "string"
+    },
+    "subtitle2": {
+      "type": "string"
     },
     "buttonText": {
       "type": "string",
