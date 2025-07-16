@@ -442,6 +442,34 @@ export interface ApiHeroSectionHeroSection extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiNewsTickerNewsTicker extends Struct.CollectionTypeSchema {
+  collectionName: 'news_tickers';
+  info: {
+    displayName: 'News Ticker';
+    pluralName: 'news-tickers';
+    singularName: 'news-ticker';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::news-ticker.news-ticker'
+    > &
+      Schema.Attribute.Private;
+    news: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -953,6 +981,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::headmaster-message.headmaster-message': ApiHeadmasterMessageHeadmasterMessage;
       'api::hero-section.hero-section': ApiHeroSectionHeroSection;
+      'api::news-ticker.news-ticker': ApiNewsTickerNewsTicker;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

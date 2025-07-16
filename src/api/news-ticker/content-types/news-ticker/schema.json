@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "collectionName": "news_tickers",
+  "info": {
+    "singularName": "news-ticker",
+    "pluralName": "news-tickers",
+    "displayName": "News Ticker"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "news": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
