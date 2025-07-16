@@ -15,7 +15,7 @@
       "type": "string",
       "required": true
     },
-    "url": {
+    "url2": {
       "type": "string"
     }
   }
