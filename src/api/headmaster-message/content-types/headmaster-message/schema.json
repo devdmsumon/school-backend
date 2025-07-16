@@ -11,15 +11,19 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Title": {
+    "title": {
       "type": "string",
       "required": true
     },
-    "Message": {
+    "message": {
       "type": "blocks",
       "required": true
     },
-    "Image": {
+    "headmasterName": {
+      "type": "string",
+      "required": true
+    },
+    "image": {
       "type": "media",
       "multiple": true,
       "required": true,

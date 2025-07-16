@@ -425,7 +425,8 @@ export interface ApiHeadmasterMessageHeadmasterMessage
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    Image: Schema.Attribute.Media<
+    headmasterName: Schema.Attribute.String & Schema.Attribute.Required;
+    image: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',
       true
     > &
@@ -436,9 +437,9 @@ export interface ApiHeadmasterMessageHeadmasterMessage
       'api::headmaster-message.headmaster-message'
     > &
       Schema.Attribute.Private;
-    Message: Schema.Attribute.Blocks & Schema.Attribute.Required;
+    message: Schema.Attribute.Blocks & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
-    Title: Schema.Attribute.String & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
