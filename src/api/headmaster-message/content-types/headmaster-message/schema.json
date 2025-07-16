@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "headmaster_messages",
+  "info": {
+    "singularName": "headmaster-message",
+    "pluralName": "headmaster-messages",
+    "displayName": "Headmaster Message"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "Message": {
+      "type": "blocks",
+      "required": true
+    },
+    "Image": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}
