@@ -373,6 +373,34 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiFactFact extends Struct.CollectionTypeSchema {
+  collectionName: 'facts';
+  info: {
+    displayName: 'Fact';
+    pluralName: 'facts';
+    singularName: 'fact';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.String & Schema.Attribute.Required;
+    factNumber: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<100>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::fact.fact'> &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiHeadmasterMessageHeadmasterMessage
   extends Struct.CollectionTypeSchema {
   collectionName: 'headmaster_messages';
@@ -980,6 +1008,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::fact.fact': ApiFactFact;
       'api::headmaster-message.headmaster-message': ApiHeadmasterMessageHeadmasterMessage;
       'api::hero-section.hero-section': ApiHeroSectionHeroSection;
       'api::news-ticker.news-ticker': ApiNewsTickerNewsTicker;
