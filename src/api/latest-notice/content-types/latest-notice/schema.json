@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "latest_notices",
+  "info": {
+    "singularName": "latest-notice",
+    "pluralName": "latest-notices",
+    "displayName": "Latest Notice"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "date": {
+      "type": "date",
+      "required": true
+    },
+    "notice": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
